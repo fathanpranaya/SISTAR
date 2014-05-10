@@ -25,10 +25,12 @@ public class MainClient {
 		
 		System.out.print("Masukkan ip tujuan : ");
 		String ip = reader.nextLine();
+		System.out.print("Masukkan port: ");
+		int port = reader.nextInt();
 		try {
 			// Connect ke server
-			client.connect(100000, ip, 54555, 54777);
-
+			client.connect(100000, ip, port, port+2000);
+			System.out.println("Terhubung ke server "+port);
 			// Listener untuk menerima respon server
 			client.addListener(new Listener() {
 				public void received(Connection connection, Object object) {
